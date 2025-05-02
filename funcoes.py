@@ -8,7 +8,7 @@ def rolar_dados (num):
 def guardar_dado (dados_rolados, dados_guard, num):
     lista = []
     dados_guard.append(dados_rolados[num])
-    del dados_rolado[num]
+    del dados_rolados[num]
     lista.append(dados_rolados)
     lista.append(dados_guard)
     return lista
