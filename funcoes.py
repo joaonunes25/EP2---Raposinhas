@@ -6,7 +6,9 @@ def rolar_dados (num):
     return lista
 
 def guardar_dado (dados_rolados, dados_guard, num):
-    lista= []
+    lista = []
     dados_guard.append(dados_rolados[num])
     del dados_rolado[num]
-    return[dados_rolados, dados_guard]
+    lista.append(dados_rolados)
+    lista.append(dados_guard)
+    return lista
