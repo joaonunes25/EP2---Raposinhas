@@ -12,3 +12,12 @@ def guardar_dado (dados_rolados, dados_guard, num):
     lista.append(dados_rolados)
     lista.append(dados_guard)
     return lista
+
+def remover_dado(dados_rolados, dados_guard, dado_para_remover):
+    lista = []
+    dados_rolados.append(dados_guard[dado_para_remover])
+    del dados_guard[dado_para_remover]
+    lista.append(dados_rolados)
+    lista.append(dados_guard)
+    return lista
+
