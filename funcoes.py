@@ -35,3 +35,21 @@ def calcula_pontos_soma(lista):
         soma += lista[i]
         i += 1
     return soma
+
+def calcula_pontos_sequencia_baixa(lista):
+    i = 0
+    while i < 2:
+        if lista[i] == 1 and lista[i+1] == 2 and lista[i+2] == 3 and lista[i+3] == 4:
+            return 15
+        if lista[i+3] == 1 and lista[i+2] == 2 and lista[i+1] == 3 and lista[i] == 4:
+            return 15
+        if lista[i] == 2 and lista[i+1] == 3 and lista[i+2] == 4 and lista[i+3] == 5:
+            return 15
+        if lista[i+3] == 2 and lista[i+2] == 3 and lista[i+1] == 4 and lista[i] == 5:
+            return 15
+        if lista[i] == 3 and lista[i+1] == 4 and lista[i+2] == 5 and lista[i+3] == 6:
+            return 15
+        if lista[i+3] == 3 and lista[i+2] == 4 and lista[i+1] == 5 and lista[i] == 6:
+            return 15
+        i += 1
+    return 0
