@@ -46,8 +46,8 @@ def calcula_pontos_sequencia_baixa(lista):
         return 0
         
 def calcula_pontos_sequencia_alta (lista):
-    if (1, 2, 3, 4, 5) in lista:
+    if (1 and 2 and 3 and 4 and 5) in lista:
         return 30
-    if (2, 3, 4, 5, 6) in lista:
+    if (2 and 3 and 4 and 5 and 6) in lista:
         return 30
     return 0
