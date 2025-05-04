@@ -62,7 +62,7 @@ def calcula_pontos_full_house(lista):
 
     lista2 = []
 
-    for item in dicio:
+    for item in dicio.keys():
         lista2.append(item)
     
     if len(lista2) == 2:
