@@ -37,13 +37,13 @@ def calcula_pontos_soma(lista):
     return soma
 
 def calcula_pontos_sequencia_baixa(lista):
-        if 1 in lista and 2 in lista and 3 in lista and 4 in lista:
-            return 15
-        if 2 in lista and 3 in lista and 4 in lista and 5 in lista:
-            return 15
-        if 3 in lista and 4 in lista and 5 in lista and 6 in lista:
-            return 15
-        return 0
+    if 1 in lista and 2 in lista and 3 in lista and 4 in lista:
+        return 15
+    if 2 in lista and 3 in lista and 4 in lista and 5 in lista:
+        return 15
+    if 3 in lista and 4 in lista and 5 in lista and 6 in lista:
+        return 15
+    return 0
         
 def calcula_pontos_sequencia_alta (lista):
     if 1 in lista and 2 in lista and 3 in lista and 4 in lista and 5 in lista:
@@ -51,3 +51,22 @@ def calcula_pontos_sequencia_alta (lista):
     if 2 in lista and 3 in lista and 4 in lista and 5 in lista and 6 in lista:
         return 30
     return 0
+
+def calcula_pontos_full_house(lista):
+    dicio = {}
+    for i in range (len(lista)):
+        if lista[i] in dicio:
+            dicio[lista[i]] += 1
+        elif lista[i] not in dicio:
+            dicio[lista[i]] = 1
+
+    lista2 = []
+
+    for item in dicio:
+        lista2.append(item)
+    
+    if len(lista2) == 2:
+        return sum(lista2)
+    else:
+        return 0
+
