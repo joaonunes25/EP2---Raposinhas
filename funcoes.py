@@ -66,7 +66,7 @@ def calcula_pontos_full_house(lista):
         lista2.append(item)
     
     if len(lista2) == 2:
-        return sum(dicio.values())
+        return sum(lista)
     else:
         return 0
 
