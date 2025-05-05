@@ -66,7 +66,10 @@ def calcula_pontos_full_house(lista):
         lista2.append(item)
     
     if len(lista2) == 2:
-        return sum(lista)
+        soma = 0
+        for i in range(len(lista)):
+            soma += lista[i]
+        return soma
     else:
         return 0
 
