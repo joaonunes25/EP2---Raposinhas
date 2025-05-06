@@ -98,7 +98,7 @@ def calcula_pontos_quadra(lista):
         soma += lista[i]
         i += 1
     
-    if um == 4 or dois == 4 or tres == 4 or quatro == 4 or cinco == 4 or seis == 4:
+    if um >= 4 or dois >= 4 or tres >= 4 or quatro >= 4 or cinco >= 4 or seis >= 4:
         return soma
     else:
         return 0
