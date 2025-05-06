@@ -102,3 +102,33 @@ def calcula_pontos_quadra(lista):
         return soma
     else:
         return 0
+    
+def calcula_pontos_quina(lista):
+    um = 0
+    dois = 0
+    tres = 0
+    quatro = 0
+    cinco = 0
+    seis = 0
+    i = 0
+    soma = 0
+    while i < len(lista):
+        if lista[i] == 1:
+            um += 1
+        if lista[i] == 2:
+            dois += 1
+        if lista[i] == 3:
+            tres += 1
+        if lista[i] == 4:
+            quatro += 1
+        if lista[i] == 5:
+            cinco += 1
+        if lista[i] == 6:
+            seis += 1
+        soma += lista[i]
+        i += 1
+    
+    if um >= 5 or dois >= 5 or tres >= 5 or quatro >= 5 or cinco >= 5 or seis >= 5:
+        return 50
+    else:
+        return 0
