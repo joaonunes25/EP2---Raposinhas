@@ -139,15 +139,30 @@ def calcula_pontos_regra_avancada(lista):
             }
     return dicio
 
-def faz_jogada (lista, texto, dicio):
+def faz_jogada(lista, texto, dicio):
+    texto = str(texto).strip()
+    print(f"Valor de texto recebido: '{texto}'")
+
+    print(f"Valor de texto recebido: '{texto}'")
+
     if texto in ['1', '2', '3', '4', '5', '6']:
         num = int(texto)
         pont = calcula_pontos_regra_simples(lista)
-        dicio['regra_simples'][num] = pont[num]
-    else:
+        if dicio['regra_simples'][num] == -1:  
+            dicio['regra_simples'][num] = pont[num]
+        else:
+            print("Erro: Essa combinação já foi utilizada.")
+    elif texto in dicio["regra_avancada"]:
         pont = calcula_pontos_regra_avancada(lista)
-        dicio['regra_avancada'][texto] = pont[texto]
-
+        if texto in pont: 
+            if dicio["regra_avancada"][texto] == -1: 
+                dicio["regra_avancada"][texto] = pont[texto]
+            else:
+                print("Erro: Essa combinação já foi utilizada.")
+        else:
+            print("Erro: Combinação inválida.")
+    else:
+        print("Erro: Opção inválida.")
     return dicio
 
 def imprime_cartela(cartela):
