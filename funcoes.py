@@ -59,7 +59,6 @@ def calcula_pontos_full_house(lista):
             dicio[lista[i]] += 1
         else:
             dicio[lista[i]] = 1
-
     
     if 2 in dicio.values() and 3 in dicio.values():
         soma = 0
@@ -130,11 +129,23 @@ def calcula_pontos_quina(lista):
         return 0
     
 def calcula_pontos_regra_avancada(lista):
-    dicio = {'cinco_iguais': calcula_pontos_quina(lista),
+    dicio = {
+            'cinco_iguais': calcula_pontos_quina(lista),
             'full_house': calcula_pontos_full_house(lista), 
             'quadra': calcula_pontos_quadra(lista), 
             'sem_combinacao': calcula_pontos_soma(lista), 
             'sequencia_alta': calcula_pontos_sequencia_alta (lista), 
             'sequencia_baixa': calcula_pontos_sequencia_baixa(lista)
             }
+    return dicio
+
+def faz_jogada (lista, texto, dicio):
+    if texto in ['1', '2', '3', '4', '5', '6']:
+        num = int(texto)
+        pont = calcula_pontos_regra_simples(lista)
+        dicio['regra_simples'][num] = pont[num]
+    else:
+        pont = calcula_pontos_regra_avancada(lista)
+        dicio['regra_avancada'][texto] = pont[texto]
+
     return dicio
