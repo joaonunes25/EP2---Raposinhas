@@ -141,9 +141,6 @@ def calcula_pontos_regra_avancada(lista):
 
 def faz_jogada(lista, texto, dicio):
     texto = str(texto).strip()
-    print(f"Valor de texto recebido: '{texto}'")
-
-    print(f"Valor de texto recebido: '{texto}'")
 
     if texto in ['1', '2', '3', '4', '5', '6']:
         num = int(texto)
