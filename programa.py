@@ -35,19 +35,23 @@ while rodadas < 12:
             num = input('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação')
             
         if num == '1':
-            num = int(input('Digite o índice do dado a ser guardado (0 a 4)'))
-            result = guardar_dado(dados_rolados, dados_guard, num)
-            dados_rolados = result[0]
-            dados_guard = result[1]
-            
+            try:
+                num = int(input('Digite o índice do dado a ser guardado (0 a 4): '))
+                result = guardar_dado(dados_rolados, dados_guard, num)
+                dados_rolados, dados_guard = result
+            except ValueError:
+                print("Erro: Entrada inválida. Digite um número inteiro.")
+
         elif num == '2':
-            dado_para_remover = int(input("Digite o índice do dado a ser removido (0 a 4)"))
-            result = remover_dado(dados_rolados, dados_guard, dado_para_remover)
-            dados_rolados = result[0]
-            dados_guard = result[1]
+            try:
+                dado_para_remover = int(input("Digite o índice do dado a ser removido (0 a 4): "))
+                result = remover_dado(dados_rolados, dados_guard, dado_para_remover)
+                dados_rolados, dados_guard = result
+            except ValueError:
+                print("Erro: Entrada inválida. Digite um número inteiro.")
             
         elif num == '3':
-            if rerrolagens <= 2:
+            if rerrolagens < 2:
                 dados_rolados = rolar_dados(len(dados_rolados))
                 rerrolagens += 1
             else:
@@ -64,13 +68,13 @@ while rodadas < 12:
                 jogada = int(jogada)
                 if cartela['regra_simples'][jogada] == -1:
                     cartela = faz_jogada(dados, str(jogada), cartela) 
-                    break
+                    cont = False
                 else:
                     print("Essa combinação já foi utilizada.")
             elif jogada in cart_regra_avanc:
                 if cartela['regra_avancada'][jogada] == -1:
                     cartela = faz_jogada(dados, jogada, cartela)
-                    break
+                    cont = False
                 else:
                     print("Essa combinação já foi utilizada.")
             else:
