@@ -6,21 +6,15 @@ def rolar_dados (num):
     return lista
 
 def guardar_dado(dados_rolados, dados_guard, num):
-    if 0 <= num < len(dados_rolados):  # Verifica se o índice é válido
+    if 0 <= num < len(dados_rolados):
         dados_guard.append(dados_rolados[num])
         del dados_rolados[num]
         return [dados_rolados, dados_guard]
-    else:
-        print("Erro: Índice inválido. Tente novamente.")
-        return [dados_rolados, dados_guard]
 
 def remover_dado(dados_rolados, dados_guard, dado_para_remover):
-    if 0 <= dado_para_remover < len(dados_guard):  # Verifica se o índice é válido
+    if 0 <= dado_para_remover < len(dados_guard): 
         dados_rolados.append(dados_guard[dado_para_remover])
         del dados_guard[dado_para_remover]
-        return [dados_rolados, dados_guard]
-    else:
-        print("Erro: Índice inválido. Tente novamente.")
         return [dados_rolados, dados_guard]
 
 def calcula_pontos_regra_simples(lista):
@@ -148,20 +142,12 @@ def faz_jogada(lista, texto, dicio):
         num = int(texto)
         pont = calcula_pontos_regra_simples(lista)
         if dicio['regra_simples'][num] == -1:  
-            dicio['regra_simples'][num] = pont[num]
-        else:
-            print("Erro: Essa combinação já foi utilizada.")
+            dicio['regra_simples'][num] = pont[num]            
     elif texto in dicio["regra_avancada"]:
         pont = calcula_pontos_regra_avancada(lista)
         if texto in pont: 
             if dicio["regra_avancada"][texto] == -1: 
-                dicio["regra_avancada"][texto] = pont[texto]
-            else:
-                print("Erro: Essa combinação já foi utilizada.")
-        else:
-            print("Erro: Combinação inválida.")
-    else:
-        print("Erro: Opção inválida.")
+                dicio["regra_avancada"][texto] = pont[texto] 
     return dicio
 
 def imprime_cartela(cartela):
