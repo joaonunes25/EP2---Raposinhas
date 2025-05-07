@@ -37,16 +37,22 @@ while rodadas < 12:
         if num == '1':
             try:
                 num = int(input('Digite o índice do dado a ser guardado (0 a 4): '))
-                result = guardar_dado(dados_rolados, dados_guard, num)
-                dados_rolados, dados_guard = result
+                if 0 <= num < len(dados_rolados):
+                    result = guardar_dado(dados_rolados, dados_guard, num)
+                    dados_rolados, dados_guard = result
+                else:
+                    print("Erro: Índice fora do intervalo. Tente novamente.")
             except ValueError:
                 print("Erro: Entrada inválida. Digite um número inteiro.")
 
         elif num == '2':
             try:
                 dado_para_remover = int(input("Digite o índice do dado a ser removido (0 a 4): "))
-                result = remover_dado(dados_rolados, dados_guard, dado_para_remover)
-                dados_rolados, dados_guard = result
+                if 0 <= dado_para_remover < len(dados_guard):
+                    result = remover_dado(dados_rolados, dados_guard, dado_para_remover)
+                    dados_rolados, dados_guard = result
+                else:
+                    print("Erro: Índice fora do intervalo. Tente novamente.")
             except ValueError:
                 print("Erro: Entrada inválida. Digite um número inteiro.")
             
@@ -62,12 +68,12 @@ while rodadas < 12:
 
         elif num == '0':
             dados = dados_guard + dados_rolados
-            jogada = input('Digite a combinação desejada:').strip() 
+            jogada = input('Digite a combinação desejada:').strip()
 
             if jogada in ['1', '2', '3', '4', '5', '6']:
                 jogada = int(jogada)
                 if cartela['regra_simples'][jogada] == -1:
-                    cartela = faz_jogada(dados, str(jogada), cartela) 
+                    cartela = faz_jogada(dados, str(jogada), cartela)
                     cont = False
                 else:
                     print("Essa combinação já foi utilizada.")
@@ -78,7 +84,7 @@ while rodadas < 12:
                 else:
                     print("Essa combinação já foi utilizada.")
             else:
-                print("Opção inválida. Tente novamente.")
+                print("Combinação inválida. Tente novamente.")
 
     rodadas += 1
 
